@@ -21,11 +21,16 @@ $(document).ready(function() {
       }
   });
 
+
+
+
   setInterval(function() {
+      idCar = idCar + 1;
       $('#obstacle').html('<img id="'+idCar+'" src="img/yellowCar.ico" class="initPosition">');
-      var id = '#'+idCar;
-      rightToLeft(id);
-  }, 3000);
+      randomCoordY =  randomCoord(roadPositionTop, roadHeight);
+      $('#'+idCar).css({'top': randomCoordY + 'px' });
+      rightToLeft('#'+idCar);
+  }, 5000);
 
 
 

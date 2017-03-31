@@ -9,7 +9,7 @@ var roadHeight = 400;
 $('#road').height(roadHeight);
 var position = $( "#road" ).position();
 var roadPositionTop = position.top;
-var roadPositionLeft = position.left;
+var roadPositionbottom = roadPositionTop + roadHeight;
 
 // Number car
 var numberOfCar = 4;
