@@ -23,16 +23,22 @@ $(document).ready(function() {
 
 
 
-
   setInterval(function() {
       idCar = idCar + 1;
-      $('#obstacle').html('<img id="'+idCar+'" src="img/yellowCar.ico" class="initPosition">');
+      $('#obstacle').append('<img id="'+idCar+'" src="img/yellowCar.ico" class="initPosition">');
       randomCoordY =  randomCoord(roadPositionTop, roadHeight);
       $('#'+idCar).css({'top': randomCoordY + 'px' });
       rightToLeft('#'+idCar);
-  }, 5000);
+  }, 1000);
 
 
-
+  window.setInterval(function() {
+      //IMPORTANT!!! Déclration des DIV et CLASS!!
+      $.each($('.initPosition'), function() {
+        if (collision($blackCar, $(this))) {
+          alert("Game Over");
+        }
+      });
+    }, 200);
 
 });

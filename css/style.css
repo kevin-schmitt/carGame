@@ -5,10 +5,11 @@ section{
 
 .blackCar
 {
-  position: absolute;
-  top: 50%;
-  z-index: 1;
   transform: rotate(90deg);
+  position: absolute;
+  left: 0%;
+  top: 25%;
+  z-index: 1;
 
 }
 a:hover
@@ -29,3 +30,4 @@ body
   z-index: 1;
   margin-right: 0px;
 }
+
