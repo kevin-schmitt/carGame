@@ -23,7 +23,7 @@ $(document).ready(function() {
 
 
 
-  setInterval(function() {
+  let carAnimation = setInterval(function() {
       idCar = idCar + 1;
       $('#obstacle').append('<img id="'+idCar+'" src="img/yellowCar.ico" class="initPosition">');
       randomCoordY =  randomCoord(roadPositionTop, roadHeight);
@@ -32,13 +32,18 @@ $(document).ready(function() {
   }, 1000);
 
 
-  window.setInterval(function() {
-      //IMPORTANT!!! Déclration des DIV et CLASS!!
+   let  main = window.setInterval(function() {
       $.each($('.initPosition'), function() {
         if (collision($blackCar, $(this))) {
+		  stop();
           alert("Game Over");
         }
       });
     }, 200);
+	
+	function stop(){
+		 clearInterval(main);
+		 clearInterval(carAnimation);
+	}
 
 });
