@@ -4,6 +4,7 @@ $(document).ready(function() {
   var NbCar;
   var randomCoordY;
   var idCar = 0;
+  var Game = new FunctionsGame();
 
 // keyboard action for car
   $(document).keydown(function(e) {
@@ -26,21 +27,21 @@ $(document).ready(function() {
   let carAnimation = setInterval(function() {
       idCar = idCar + 1;
       $('#obstacle').append('<img id="'+idCar+'" src="img/yellowCar.ico" class="initPosition">');
-      randomCoordY =  randomCoord(roadPositionTop, roadHeight);
+      randomCoordY =  Game.randomCoord(roadPositionTop, roadHeight);
       $('#'+idCar).css({'top': randomCoordY + 'px' });
-      rightToLeft('#'+idCar);
+      Game.rightToLeft('#'+idCar);
   }, 1000);
 
 
    let  main = window.setInterval(function() {
       $.each($('.initPosition'), function() {
-        if (collision($blackCar, $(this))) {
+        if (Game.collision($blackCar, $(this))) {
 		  stop();
           alert("Game Over");
         }
       });
     }, 200);
-	
+
 	function stop(){
 		 clearInterval(main);
 		 clearInterval(carAnimation);
