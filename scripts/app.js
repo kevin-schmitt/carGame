@@ -36,8 +36,8 @@ $(document).ready(function() {
    let  main = window.setInterval(function() {
       $.each($('.initPosition'), function() {
         if (Game.collision($blackCar, $(this))) {
-		  stop();
-          alert("Game Over");
+		      stop();
+          $(".loader h1").css('visibility','visible').hide().fadeIn('slow');
         }
       });
     }, 200);
